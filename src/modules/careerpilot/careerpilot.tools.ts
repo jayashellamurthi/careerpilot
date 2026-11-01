@@ -129,6 +129,22 @@ export class CareerPilotTools {
   async addApplication(input: any, ctx: ExecutionContext) {
     ctx.logger.info('Adding application', { company: input.company, role: input.role });
 
+    // Avoid duplicates: same company and role updates the existing entry
+    const existing = applications.find(
+      (a) =>
+        a.company.toLowerCase() === String(input.company).toLowerCase() &&
+        a.role.toLowerCase() === String(input.role).toLowerCase()
+    );
+    if (existing) {
+      existing.status = input.status;
+      if (input.notes) existing.notes = input.notes;
+      return {
+        message: `${existing.role} at ${existing.company} is already in your tracker, status updated to ${existing.status}`,
+        application: existing,
+        total_applications: applications.length
+      };
+    }
+
     const app: Application = {
       id: nextId++,
       company: input.company,

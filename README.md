@@ -14,8 +14,9 @@ Today you open a job post, guess whether your resume fits, then copy details int
 
 ## Live demo
 
-- MCP server (NitroCloud): SERVICE_URL_HERE
-- NitroChat: CHAT_URL_HERE
+- MCP server (NitroCloud): https://careerpilot-6ae5efa3-jayasheela-fronthyre.app.nitrocloud.ai
+- NitroChat: https://nitrochat-careerpilot-chat-6ae5f0bb-jayasheela-fronthyre.app.nitrocloud.ai
+
 
 ## What is inside
 
